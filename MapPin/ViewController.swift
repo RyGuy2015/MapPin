@@ -20,6 +20,11 @@ class ViewController: UIViewController, MKMapViewDelegate {
         print(currentBundle)
         
         mapView.delegate = self
+        
+        if currentBundle.hasSuffix("MapPinSatellite") {
+            mapView.mapType = MKMapType.Satellite
+        }
+        
         let centerPoint = CLLocationCoordinate2D(latitude: 52.011937, longitude: -3.713379)
         let coordinateSpan = MKCoordinateSpanMake(3.5, 3.5)
         let coordinateRegion = MKCoordinateRegionMake(centerPoint, coordinateSpan)
